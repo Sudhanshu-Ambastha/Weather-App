@@ -1,0 +1,372 @@
+body {
+  margin: 0;
+  font-family: "Nunito Sans", sans-serif;
+  background-color: black;
+  color: white;
+  }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  flex-direction: column; 
+}
+
+.Loading {
+  display: block;
+  margin-bottom: 10px; 
+}
+
+.loading-text {
+  font-size: 32px; 
+  color: #333; 
+  font-family: 'Cursive', sans-serif; 
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: rgb(30, 30, 30);
+}
+  
+.logo-container {
+  display: flex;
+  flex-direction: row;
+}
+    
+.logo {
+  width: 10rem;
+  height: 32px;
+}
+    
+.search-container {
+  display: flex;
+  align-items: center;
+  margin-left: 5rem;
+  }
+
+.search-container .form{
+  display: flex;
+  flex-direction: row;
+}
+
+.search-input {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 1rem;
+  background-color: rgb(30, 30, 30);
+  color: white;
+}
+
+.search-button{
+  margin-left: 8px;
+  background-color: rgb(30, 30, 30);
+  border-radius: 40%;
+  border: none;
+}
+
+.location-button {
+  display: flex;
+  flex-direction: row;
+  padding: 0.5rem 1rem;
+  margin-left: 3rem;
+  border: none;
+  border-radius: 2rem;
+  background-color: #c5aff7;
+  color: white;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+          
+.main-content {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.align {
+  display: flex;
+  flex-direction: column;
+}
+  
+.current-weather,
+.highlights,
+.forecast {
+  background-color: rgb(26, 25, 25);
+  border-radius: 16px;
+  box-sizing: border-box;
+}
+
+.current-weather {
+  width: 250px;
+  z-index: 1;
+  padding: 0 0 10px 15px;
+  margin-top: -10px;
+}
+    
+.current-weather .weather-icon-sun {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10rem;
+  margin-top: -3rem;
+}
+  
+.current-weather .divider {
+  border: 0;
+  margin-left: -10px;
+  height: 1px;
+  background: white;
+}
+
+.highlights {
+  margin-left: 275px;
+  margin-top: -14.7rem;
+  padding: 1rem;
+}
+  
+.current-weather .date {
+  margin: 0rem 0rem 3px 0rem;
+}
+    
+.highlight {
+  background-color: rgb(16, 16, 16);
+  border-radius: 10px;
+  padding: 1rem;
+  box-sizing: border-box;
+  width: 36rem;
+  margin-top: -9.7rem;
+  height: 15rem;
+}
+  
+.highlights-container1 {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin-top: 10rem;
+  width: 100%;
+}
+    
+
+.highlights-container1 .highlight .content {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+}
+  
+.highlights .highlights-container3 .highlight .content {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+} 
+  
+.highlights-container3 {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(26, 25, 25);
+}
+  
+.highlights-container3 .highlight1 {
+  background-color: rgb(16, 16, 16);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30rem;
+  margin: 0 3rem 0 3rem;
+  gap: 8px;
+}
+    
+.highlights-container3 .highlight1 .highlight-value {
+  text-align: center;
+  translate: 15px;
+  margin-right: 2rem;
+}
+
+.highlights-container2 {
+  margin-top: 20rem;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  width: 100%;
+  }
+  
+.highlights-container2 .highlight {
+  height: -10rem;
+}
+
+.highlight-title .list {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.highlight-status {
+  border-radius: 10px;
+  width: 60px;
+  height: 22px;
+  text-align: center;
+  margin: 0 5px 0 -5px;
+}
+
+.temperature {
+  font-size: 2.5rem;
+}
+
+.condition,
+.date,
+.location {
+  font-size: 1.25rem;
+}
+  
+.highlight2 {
+  display: grid;
+  width: 49%;
+  border-radius: 10px;
+  margin-top: -9.7rem;
+  background-color: rgb(26, 25, 25);
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1rem;
+}
+    
+.highlight2 .container1 {
+  background-color: rgb(16, 16, 16);
+  border-radius: 10px;
+}
+
+.highlight2 .container1 .highlight-value {
+  text-align: right;
+  translate: 0 -2.5rem;
+  margin-right: 1rem;
+}
+  
+.forecast {
+  height: 15rem;
+  width: 250px;
+  margin-top: -13rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: black;
+}
+
+.highlights-title,
+.forecast-title,
+.hourly-forecast-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.highlights-grid,
+.hourly-forecast-grid {
+  width: 100%;
+  display: flex;
+}
+
+.forecast-grid {
+  display: flex;
+  border-radius: 10px;
+  flex-direction: column;
+  background-color: rgb(26, 25, 25);
+  justify-content: space-evenly;
+  /* padding: 1rem; */
+}
+
+.forecast-item {
+  display: flex;
+  justify-content: space-around;
+}
+
+.forecast-weather-icon,
+.forecast-temp,
+.forecast-date {
+  margin-right: 2rem;
+  display: flex;
+}
+  
+.forecast-date {
+  display: flex;
+  flex-direction: row;
+}
+
+.highlight,
+.forecast-item,
+.hourly-forecast-item {
+  text-align: center;
+}
+  
+.highlight-title,
+.highlight-value,
+.highlight-status,
+.forecast-temp,
+.forecast-date,
+.hour,
+.hour-temp {
+  font-size: 1rem;
+}
+  
+.hourly-forecast {
+  margin-left: 300px;
+  background-color: black;
+  align-content: center;
+  align-items: center;
+  justify-content: space-evenly;
+}
+    
+.hourly-forecast-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  text-align: center;
+  height: 6.5rem;
+  width: 7rem;
+  margin-left: 10px;
+  background-color: rgb(55, 55, 55);
+  border-radius: 10px;
+}
+
+.footer {
+  display: flex;
+  text-align: center;
+  background-color: black;
+  justify-content: space-between;
+  margin-right: 4rem;
+  padding: 1rem;
+}
+
+.footer .SALogo {
+  margin-left: 1rem;
+  height: 5rem;
+  width: 5rem;
+  clip-path: polygon(51% 19%, 77% 34%, 77% 65%, 49% 80%, 23% 65%, 23% 34%);
+}
+
+.footer .col1 p {
+  margin-bottom: 1.5rem;
+}
+
+.footer .col2 p {
+  margin-top: 1.5rem;
+  margin-right: -1rem;
+}
+
+.footer .col2 img {
+  margin-top: 1rem;
+  margin-right: -1rem;
+} 
