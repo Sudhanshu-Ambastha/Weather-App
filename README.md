@@ -1,6 +1,6 @@
 # Weather App
 
-A weather forecasting web application built with React, Tailwind CSS, and the OpenWeatherMap API. It provides real-time weather information, 5-day forecasts, air quality data, and supports geolocation to display weather based on the user's current location.
+A weather forecasting web application built with React, CSS, and the OpenWeatherMap API. It provides real-time weather information, 5-day forecasts, air quality data, and supports geolocation to display weather based on the user's current location.
 
 ## Table of Contents
 - [Weather App](#weather-app)
@@ -16,13 +16,12 @@ A weather forecasting web application built with React, Tailwind CSS, and the Op
 
 ## Introduction
 
-This Weather App allows users to search for weather conditions by city name or use geolocation to fetch current weather, air quality index (AQI), humidity, UV index, and 5-day forecasts. The app leverages the OpenWeatherMap API for weather data and includes error handling for failed requests and geolocation errors.
+This Weather App allows users to search for weather conditions by city name or use geolocation to fetch current weather, air quality index (AQI), humidity, UV index, and 5-day forecasts. The app leverages the OpenWeatherMap API for weather data and includes error handling for failed requests.
 
 ## Features
 - Real-time weather information with temperature, weather conditions, and icons.
 - Air Quality Index (AQI) display with pollutant breakdown (PM2.5, NO2, SO2, etc.).
 - 5-day weather forecast showing min/max temperatures.
-- Geolocation support for displaying current location weather.
 - Hourly forecast with wind speed, temperature, and weather conditions.
 - Sunrise/sunset times and UV index.
 - Error handling for API errors and location retrieval issues.
@@ -45,13 +44,7 @@ To install and run the app locally, follow these steps:
    ```
    npm install  
    ```
-4. Set up Tailwind CSS: Follow the [Tailwind CSS docs](https://tailwindcss.com/docs/guides/create-react-app)& can use [Tailwind CSS VScode extension](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) for better experience.
-    ```
-    npm install -D tailwindcss
-    ```
-    ```
-    npx tailwindcss init
-    ```
+
 1. Create a .env file in the root directory and add your OpenWeatherMap API key:
    ```
    OPENWEATHER_API_KEY=your_api_key_here
@@ -94,9 +87,7 @@ Error components are located in `components/error/Error.jsx` and styled with `er
 
 ## Dependencies
 - **React:** For building the user interface.
-- **Tailwind CSS:** A utility-first CSS framework for styling the app.
 - **OpenWeatherMap API:** Used to fetch real-time weather data, 5-day forecasts, and air quality information.
-- **Geolocation API:** For fetching weather based on the user's current location.
 - **Postman:** For API testing and validation.
 
 [Auto Import - ES6, TS, JSX, TSX](https://marketplace.visualstudio.com/items?itemName=NuclleaR.vscode-extension-auto-import)
