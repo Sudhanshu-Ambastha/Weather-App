@@ -1,4 +1,4 @@
-const api_key = process.env.OPENWEATHER_API_KEY;
+const api_key = process.env.REACT_APP_OPENWEATHER_API_KEY;
 console.log(`API Key: ${api_key}`);
 
 if (!api_key) {
@@ -32,12 +32,14 @@ export const fetchData = async function(URL, callback, onError) {
 };
 
 // Define the URL functions with the API key appended
+let unitChoice = 'metric'; // Default to Celsius; change this based on user selection ('metric' for Celsius, 'imperial' for Fahrenheit)
+
 export const url = {
     currentWeather(lat, lon) {
-        return `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric`;
+        return `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${unitChoice}`;
     },
     forecast(lat, lon) {
-        return `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric`;
+        return `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=${unitChoice}`;
     },
     airPollution(lat, lon) {
         return `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}`;
@@ -48,4 +50,9 @@ export const url = {
     geo(query) {
         return `https://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5`;
     }
+};
+
+// Function to toggle between Celsius and Fahrenheit
+export const setUnitChoice = (unit) => {
+    unitChoice = (unit === 'C') ? 'metric' : 'imperial';
 };

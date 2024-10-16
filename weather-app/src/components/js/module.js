@@ -1,6 +1,6 @@
 import { SunIcon, Night, Cloudy, CloudyDay, CloudyNight, Rain, ThunderStormDay, ThunderStormNight, ThunderStormRain,
   ThunderStormNightRain, ThunderStormSnow, ThunderStormNightSnow, Snow, Sleet, Tornado, Hail, Hurricane, Fog, Haze,
-  Mist, Wind, Smoke, Dust, AQI, AQI2, AQI3, AQI4, AQI5, AQI6,} from '../../assets/index.js';
+  Mist, Wind, Smoke, Dust, AQI, AQI2, AQI3, AQI4, AQI5, AQI6, Celsius, Fahrenheit} from '../../assets/index.js';
 
 export const weekDayNames = [
   "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"
@@ -60,6 +60,17 @@ export const getHours = function(timeUnix, timezone) {
  */
 export const mps_to_kmh = mps => {
     return (mps * 3600) / 1000;
+};
+
+export const tempIcon = (unit) => {
+  switch (unit) {
+    case 'C':
+      return Celsius;
+    case 'F':
+      return Fahrenheit;
+    default:
+      return Celsius;
+  }
 };
 
 export const aqiText = {
@@ -159,6 +170,11 @@ export function getMinMaxTemperatures(forecastData) {
         console.error("forecastData is not an array", forecastData);
         return [];
     }
+    return forecastData.map(day => ({
+        date: new Date(day.dt * 1000).toLocaleDateString('en-US'),
+        minTemp: day.main.temp_min,
+        maxTemp: day.main.temp_max,
+    }));
   }
 
 // export const getPollenLevelText = (pollenCount) => {

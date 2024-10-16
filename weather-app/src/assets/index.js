@@ -71,3 +71,7 @@ export { default as Wind } from './animation-ready/wind.svg';
 //Atmospheric Conditions:-
 export { default as Smoke } from './animation-ready/smoke.svg';
 export { default as Dust } from './animation-ready/dust.svg';
+
+//Celcius or Fahrenheit icons:-
+export { default as Celsius } from './images/Celsius.png';
+export { default as Fahrenheit } from './images/Fahrenheit.png';

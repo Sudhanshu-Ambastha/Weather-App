@@ -1,18 +1,24 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./weatherapp.css";
-import { Logo, SALogo, CompanyLogo, Search, CalendarIcon, LocationPin, LocateFixed, Thermometer, VisibilityOn, VisibilityOff, UVIndex, Pollen, Sunrise, Sunset, Humidity, Barometer, Loading, AQI, AQI2, AQI3, AQI4, AQI5, AQI6, Wind } from '../../assets/index';
-import { fetchData, url } from '../js/api';
+import { Logo, SALogo, CompanyLogo, Search, CalendarIcon, LocationPin, LocateFixed, Thermometer, VisibilityOn, VisibilityOff, UVIndex, Pollen, Sunrise, Sunset, Humidity, Barometer, Loading, AQI, AQI2, AQI3, AQI4, AQI5, AQI6, Wind, Celsius, Fahrenheit } from '../../assets/index';
+import { fetchData, url, setUnitChoice } from '../js/api';
 import Error from '../error/Error';
-import { getDate, getTime, mps_to_kmh, aqiText, weatherIcons, getUVIndexText, date, dailyMinMaxTemps, weekDayNames} from '../js/module'; 
+import { getDate, getTime, mps_to_kmh, aqiText, weatherIcons, getUVIndexText, date, dailyMinMaxTemps, weekDayNames, tempIcon} from '../js/module'; 
 
 const WeatherApp = () => {
-  const [weatherData, setWeatherData] = useState(null);
-  const [forecastData, setForecastData] = useState(null);
-  const [airPollutionData, setAirPollutionData] = useState(null);
   const [location, setLocation] = useState({ lat: 28.73325253343566, lon: 77.29813920631982 });
-  const [error, setError] = useState(null);
+  const [airPollutionData, setAirPollutionData] = useState(null);
+  const [forecastData, setForecastData] = useState(null);
+  const [weatherData, setWeatherData] = useState(null);
+  const [isCelsius, setIsCelsius] = useState(true);
   const [loading, setLoading] = useState(true);
+  const [unit, setUnit] = useState('C'); 
+  const [error, setError] = useState(null);
   const [query, setQuery] = useState("");
+
+  const handleUnitChange = (newUnit) => {
+    setUnit(newUnit);
+  };
 
   const fetchWeather = () => {
     setLoading(true);
@@ -43,7 +49,14 @@ const WeatherApp = () => {
 
   useEffect(() => {
     fetchWeather();
-  }, [location]);
+  }, [location, isCelsius, unit]);
+
+  const toggleUnit = () => {
+    const newUnit = unit === 'C' ? 'F' : 'C';
+    setUnit(newUnit);
+    setUnitChoice(newUnit); 
+    fetchData();   
+  };
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -118,14 +131,20 @@ const WeatherApp = () => {
 
   const aqi = airPollutionData.list[0].main.aqi;
 
+  const displayedIcon = weatherData ? tempIcon(unit) : null;
+  const temperature = weatherData ? weatherData.main.temp : null;
+
   return (
-    <div className={`container ${isDayTime() ? 'day' : 'night'}`}>
+    <div className={`container ${isDayTime() ? 'day' : 'night'} ${isCelsius ? 'metric' : 'imperial'}`}>
       <header className="header">
         <div className="logo-container">
           <img src={Logo} alt="weatherio" className="logo" />
         </div>
         <div className="search-container">
           <form onSubmit={handleSearch}>
+          <button onClick={toggleUnit} className="selectorButton">
+          <img src={displayedIcon} alt={unit === 'C' ? 'Celsius' : 'Fahrenheit'} height={35} width={35}/>
+          </button>
             <input
               type="search"
               placeholder="Search city..."
@@ -147,7 +166,7 @@ const WeatherApp = () => {
   <div className="current-weather">
     <h2 className="title-2 card-title">Now</h2>
     <div className="temperature">
-      {weatherData.main.temp}<sup>°C</sup>
+      {weatherData.main.temp}<sup>°{unit}</sup>
     </div>
     <img
       src={getWeatherIcon()}
@@ -228,13 +247,7 @@ const WeatherApp = () => {
         </div>
         <div className="container1">
           <div className="content">
-            <img
-              src={Sunrise}
-              width="50"
-              height="50"
-              alt="Sunrise"
-              className="weather-icon"
-            />
+            <img src={Sunrise} width="50" height="50" alt="Sunrise" className="weather-icon"/>
             <div className="highlight-title">Sunrise</div>
             <div className="highlight-value">{getTime(weatherData.sys.sunrise, weatherData.timezone)}</div>
           </div>
@@ -296,7 +309,7 @@ const WeatherApp = () => {
       <div className="highlight1">
         <div className="highlight-title">Feels Like</div>
         <img src={Thermometer} width="50" height="50" alt="Feels Like" className="weather-icon"/>
-        <div className="highlight-value">{weatherData.main.feels_like}°C</div>
+        <div className="highlight-value">{weatherData.main.feels_like}°{unit}</div>
       </div>
     </div>
   </div>
@@ -309,8 +322,8 @@ const WeatherApp = () => {
               <div key={index} className="forecast-item">
                 <h3>{formatDay(dayData.dt)}</h3>
                 <img src={weatherIcons[dayData.weather[0].main] || weatherIcons.SunIcon} width="50" height="50" alt={dayData.weather[0].description} className="forecast-weather-icon" />
-                <p>{Math.round(dayData.main.temp_min)}°C</p>
-                <p>{Math.round(dayData.main.temp_max)}°C</p>
+                <p>{Math.round(dayData.main.temp_min)}°{unit}</p>
+                <p>{Math.round(dayData.main.temp_max)}°{unit}</p>
               </div>
             ))}
           </div>
@@ -329,7 +342,7 @@ const WeatherApp = () => {
             alt={item.weather[0].description}
             className="weather-icon"
           />
-          <div className="hour-temp">{Math.round(item.main.temp)}°C</div>
+          <div className="hour-temp">{Math.round(item.main.temp)}°{unit}</div>
         </div>
       ))}
     </div>

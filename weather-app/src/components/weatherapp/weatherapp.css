@@ -47,6 +47,11 @@ body {
   width: 10rem;
   height: 32px;
 }
+
+.selectorButton{
+  background-color: transparent;
+  border: none;
+}
     
 .search-container {
   display: flex;
@@ -111,7 +116,6 @@ body {
   width: 250px;
   z-index: 1;
   padding: 0 0 10px 15px;
-  margin-top: -10px;
 }
     
 .current-weather .weather-icon-sun {
@@ -130,7 +134,7 @@ body {
 
 .highlights {
   margin-left: 275px;
-  margin-top: -14.7rem;
+  margin-top: -15.2rem;
   padding: 1rem;
 }
   

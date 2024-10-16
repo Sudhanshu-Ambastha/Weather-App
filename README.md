@@ -20,6 +20,7 @@ This Weather App allows users to search for weather conditions by city name or u
 
 ## Features
 - Real-time weather information with temperature, weather conditions, and icons.
+- Celsius and Fahrenheit toggle to switch between temperature units.
 - Air Quality Index (AQI) display with pollutant breakdown (PM2.5, NO2, SO2, etc.).
 - 5-day weather forecast showing min/max temperatures.
 - Hourly forecast with wind speed, temperature, and weather conditions.
@@ -45,21 +46,25 @@ To install and run the app locally, follow these steps:
    npm install  
    ```
 
-1. Create a .env file in the root directory and add your OpenWeatherMap API key:
+4. Create a .env file in the root directory and add your OpenWeatherMap API key:
    ```
-   OPENWEATHER_API_KEY=your_api_key_here
+   REACT_APP_OPENWEATHER_API_KEY=your_api_key
    ```
 
-2. Start the development server:
+5. Start the development server:
    ```
    npm start    
    ```
-
+6. Start the development server instantly with:
+   ```
+   cd weather-app && npm start    
+   ```
 ##  Usage
 
 - **Search by City:** Use the search bar to find weather data for any city.
 - **Geolocation:** Click "Current Location" to fetch weather based on your current geographical coordinates.
 - **Weather Data:** The app displays current weather conditions, including temperature, AQI, wind speed, UV index, and sunrise/sunset times.
+- **Temperature Toggle:** Users can switch between Celsius and Fahrenheit for temperature readings.
 - **Forecast:** View the 5-day forecast and hourly forecast for the current day.
 
 ## Configuration
