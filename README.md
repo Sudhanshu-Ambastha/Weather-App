@@ -2,6 +2,8 @@
 
 A weather forecasting web application built with React, CSS, and the OpenWeatherMap API. It provides real-time weather information, 5-day forecasts, air quality data, and supports geolocation to display weather based on the user's current location.
 
+<picture><img src = "./Weather App.gif" width = 100%></picture>
+
 ## Table of Contents
 - [Weather App](#weather-app)
   - [Table of Contents](#table-of-contents)
