@@ -15,6 +15,7 @@ A weather forecasting web application built with React, CSS, and the OpenWeather
   - [Routing](#routing)
   - [Error Handling](#error-handling)
   - [Dependencies](#dependencies)
+  - [Live Demo](#live-demo)
 
 ## Introduction
 
@@ -100,3 +101,6 @@ Error components are located in `components/error/Error.jsx` and styled with `er
 [Auto Import - ES6, TS, JSX, TSX](https://marketplace.visualstudio.com/items?itemName=NuclleaR.vscode-extension-auto-import)
 
 [Postman DB Link](https://web.postman.co/workspace/My-Workspace~b124c25d-b089-4adf-8f43-af70c1b5b9eb/request/29725199-7607ae0d-cf27-49dc-97df-26778dab9c63)
+
+## Live Demo
+Check out the deployed model at the following link:[Weather App](https://671cfeda728879fd92d0b20a--stately-belekoy-fd3a0e.netlify.app/)
