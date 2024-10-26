@@ -28,6 +28,7 @@ This Weather App allows users to search for weather conditions by city name or u
 - 5-day weather forecast showing min/max temperatures.
 - Hourly forecast with wind speed, temperature, and weather conditions.
 - Sunrise/sunset times and UV index.
+- **Geolocation Support:** The app can fetch weather based on the user's current location, making it easy to see local weather conditions without manual input. If location access is denied, a fallback location (Ghaziabad, Uttar Pradesh, India) is used.
 - Error handling for API errors and location retrieval issues.
 
 ## Installation
