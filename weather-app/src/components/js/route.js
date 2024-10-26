@@ -1,13 +1,19 @@
 import { updateWeather, error404 } from "./app.js";
+
 const defaultLocation = "#/weather?lat=28.682798845448065&lon=77.34939915991103"; // Ghaziabad, Uttar Pradesh, India
-// , 
+
 const currentLocation = function() {
-    window.navigator.geolocation.getCurrentPosition(res => {
-        const { latitude, longitude } = res.coords;
-        updateWeather(`lat=${latitude}`, `lon=${longitude}`);
-    }, err => {
-        window.location.hash = defaultLocation;
-    });
+    navigator.geolocation.getCurrentPosition(
+        position => {
+            const { latitude, longitude } = position.coords;
+            console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+            updateWeather(`lat=${latitude}`, `lon=${longitude}`);
+        },
+        error => {
+            console.error("Error getting location:", error.message);
+            window.location.hash = defaultLocation;
+        }
+    );
 };
 
 /**
